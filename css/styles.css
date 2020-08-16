@@ -21,9 +21,14 @@
 }
 
 body {
-  background-color: #ffffff;
+  color: #ffffff;
   font-family: "IBMPlexSansKR-Regular";
-  background-image: url("https://source.unsplash.com/random") no-repeat;
+}
+
+.bg {
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
 }
 
 li {
@@ -172,13 +177,15 @@ button {
   margin-top: 2em;
   position: relative;
   text-align: center;
+  font-weight: bold;
 }
 
 .todo-list > li,
 .todo-finished > li {
-  box-shadow: 1px 1px 1.4px 1px #a4b0be;
+  box-shadow: 1px 1px 3px 3px #a4b0be;
   width: 350px;
   margin: 0 auto;
+
   border-radius: 10px;
   margin-bottom: 1em;
 }
@@ -209,14 +216,16 @@ button {
   border-radius: 12px;
   box-shadow: 0.4px 0.4px 1.4px 0.4px #a4b0be;
   border: none;
-  padding: 0.2em 1em;
-  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  font-size: 1em;
+  font-weight: bold;
   margin-top: 1em;
   outline: none;
 }
 
 .label {
-  font-size: 1em;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
 .todo-form > input {

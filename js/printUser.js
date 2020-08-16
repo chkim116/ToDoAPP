@@ -26,5 +26,9 @@ function loadToDoList() {
   content.classList.add("showing");
 }
 
-loadUserName();
-userName.addEventListener("submit", handleName);
+function init() {
+  loadUserName();
+  userName.addEventListener("submit", handleName);
+}
+
+init();

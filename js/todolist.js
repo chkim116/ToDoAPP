@@ -146,9 +146,11 @@ function handleDelFinished(e) {
 
 function handleDoneList(e) {
   const li = e.target.parentNode.parentNode;
+  console.log(e.target.parentNode.parentNode);
   finishNoList.style.display = "none";
-  handleDelToDos(e);
   handleCreateFinished(li.innerText);
+
+  handleDelToDos(e);
 }
 
 // Save on Localstorage
@@ -166,7 +168,7 @@ function handleCreateToDo(list, start, finish) {
   const li = document.createElement("li");
   const done = document.createElement("span");
   const del = document.createElement("span");
-  const date = document.createElement("span");
+  const date = document.createElement("div");
   date.setAttribute("class", "todolist-date");
   del.innerHTML = `<i class="far fa-trash-alt delbtn"></i>`;
   del.addEventListener("click", handleDelToDos);
@@ -214,7 +216,7 @@ function handleCreateToDo(list, start, finish) {
   saveToDo();
 }
 
-// Create List - Finishde List
+// Create List - Finished List
 
 function handleCreateFinished(list) {
   const finishedDay = new Date();
@@ -229,6 +231,7 @@ function handleCreateFinished(list) {
   del.innerHTML = `<i class="far fa-trash-alt delbtn"></i>`;
   del.addEventListener("click", handleDelFinished);
   finishedToDo.appendChild(li);
+
   li.innerText = list;
   li.style.textDecoration = "line-through";
 
@@ -242,6 +245,36 @@ function handleCreateFinished(list) {
     finishedDate: finishDate,
   };
 
+  console.log(finishDate);
+  finishedDos.push(finishedDosObj);
+  checkFinished();
+  saveFinished();
+}
+
+// Save Finished Date
+function handleLoadFinished(list, saveFinishedDate) {
+  const li = document.createElement("li");
+  const del = document.createElement("span");
+  const date = document.createElement("span");
+  date.setAttribute("class", "finished-date");
+  date.innerHTML = saveFinishedDate;
+  del.innerHTML = `<i class="far fa-trash-alt delbtn"></i>`;
+  del.addEventListener("click", handleDelFinished);
+  finishedToDo.appendChild(li);
+
+  li.innerText = list;
+  li.style.textDecoration = "line-through";
+
+  li.id = finishedDos.length + 1;
+  li.appendChild(del);
+  li.appendChild(date);
+
+  let finishedDosObj = {
+    text: list,
+    id: finishedDos.length + 1,
+    finishedDate: saveFinishedDate,
+  };
+
   finishedDos.push(finishedDosObj);
   checkFinished();
   saveFinished();
@@ -252,7 +285,7 @@ function handleCreateFinished(list) {
 function handleToDo(e) {
   const list = input.value;
   if (!list) {
-    console.log("입력");
+    alert("입력");
   } else {
     e.preventDefault();
     handleCreateToDo(list);
@@ -277,7 +310,7 @@ function loadLocalStorage() {
   if (getFinished) {
     const getFinish = JSON.parse(getFinished);
     getFinish.forEach((list) => {
-      handleCreateFinished(list.text);
+      handleLoadFinished(list.text, list.finishedDate);
     });
   }
 }
