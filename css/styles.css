@@ -29,6 +29,8 @@ body {
   overflow: hidden;
   position: fixed;
   z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
 li {
@@ -53,14 +55,16 @@ button {
   border: none;
   outline: none;
 }
+
 .showing {
   display: block;
 }
 
-.done {
-  text-decoration: line-through;
+#container {
+  width: 1260px;
+  min-width: 768px;
+  margin: 0 auto;
 }
-
 /* weather */
 .weather {
   text-align: right;
@@ -71,9 +75,15 @@ button {
 /* nav */
 .sidemenu {
   position: absolute;
-  top: 30%;
-  left: 10%;
-  transform: translate(-10%, -30%);
+  top: 10%;
+  left: 20%;
+  transform: translate(-20%, -10%);
+  display: none;
+}
+
+.sidemenu.showing {
+  display: block;
+  animation: showingList 1s forwards;
 }
 
 .sidemenu-list {
@@ -118,7 +128,7 @@ button {
   border-radius: 12px;
   box-shadow: 0.4px 0.4px 1.4px 0.4px #a4b0be;
   border: none;
-  padding: 0.2em 1em;
+  padding: 0.8em 1.2em;
   font-size: 1.2em;
   margin-top: 1em;
   outline: none;
@@ -133,6 +143,9 @@ button {
   margin: 0;
 }
 
+.print-name {
+  padding: 1em;
+}
 /* TODOLIST or FIINISHED LIST */
 
 .content {
