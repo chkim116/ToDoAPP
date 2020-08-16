@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "LAB디지털";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "IBMPlexSansKR-Regular";
+  background-image: url("https://source.unsplash.com/random") no-repeat;
+}
+
+li {
+  list-style: none;
+}
+
+.prevM,
+.nextM,
+.days,
+.start,
+.finish,
+.start-submit,
+.finish-submit,
+.delbtn,
+.donebtn,
+button,
+.calendar::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+.showing {
+  display: block;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+/* weather */
+.weather {
+  text-align: right;
+  padding: 1em;
+  font-size: 1em;
+}
+
+/* nav */
+.sidemenu {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  transform: translate(-10%, -30%);
+}
+
+.sidemenu-list {
+  padding: 1em 4em;
+  margin: 1em 0;
+  border-radius: 1.2em;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.sidemenu-list:nth-child(1) {
+  background-color: #5352ed;
+}
+.sidemenu-list:nth-child(2) {
+  background-color: #ff6348;
+}
+
+.sidemenu-list.active {
+  font-weight: bold;
+}
+
+/* header Clock */
+#header {
+  width: 768px;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: center;
+}
+
+.clock {
+  font-family: "LAB디지털";
+  width: 100%;
+  height: 80px;
+  font-size: 2em;
+}
+
+/* print User Name */
+
+.user-name > input {
+  border-radius: 12px;
+  box-shadow: 0.4px 0.4px 1.4px 0.4px #a4b0be;
+  border: none;
+  padding: 0.2em 1em;
+  font-size: 1.2em;
+  margin-top: 1em;
+  outline: none;
+}
+.user-name > button {
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+}
+
+.print-user {
+  margin: 0;
+}
+
+/* TODOLIST or FIINISHED LIST */
+
+.content {
+  display: none;
+}
+
+.content.showing {
+  display: block;
+}
+
+.wrap__todolist,
+.wrap__finished {
+  display: flex;
+  display: none;
+  width: 768px;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrap__todolist.hide,
+.wrap__finished.hide {
+  display: flex;
+  animation: showingList 1s forwards;
+}
+
+@keyframes showingList {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.todo-list,
+.todo-finished {
+  width: 768px;
+  font-size: 1.2em;
+  margin-top: 2em;
+  position: relative;
+  text-align: center;
+}
+
+.todo-list > li,
+.todo-finished > li {
+  box-shadow: 1px 1px 1.4px 1px #a4b0be;
+  width: 350px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+.delbtn,
+.delbtn-finished {
+  position: absolute;
+  right: 18%;
+  font-size: 1.3em;
+}
+
+.donebtn {
+  position: absolute;
+  right: 22%;
+  font-size: 1.3em;
+}
+
+.todolist-date,
+.finished-date {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* design Input */
+
+.calendar {
+  border-radius: 12px;
+  box-shadow: 0.4px 0.4px 1.4px 0.4px #a4b0be;
+  border: none;
+  padding: 0.2em 1em;
+  font-size: 1.2em;
+  margin-top: 1em;
+  outline: none;
+}
+
+.label {
+  font-size: 1em;
+}
+
+.todo-form > input {
+  border-radius: 12px;
+  box-shadow: 0.4px 0.4px 1.4px 0.4px #a4b0be;
+  border: none;
+  padding: 0.2em 1em;
+  font-size: 1.2em;
+  margin-top: 1em;
+  outline: none;
+}

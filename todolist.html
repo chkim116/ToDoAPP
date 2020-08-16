@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <script
+      src="https://kit.fontawesome.com/66fd1dbf65.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="weather"></div>
+    <div class="sidemenu">
+      <div>
+        <div class="sidemenu-list active todosbtn">TODOS<span></span></div>
+        <div class="sidemenu-list finishedbtn">FINISHED<span></span></div>
+      </div>
+    </div>
+    <header id="header">
+      <div class="clock">
+        <div class="date"></div>
+        <div class="hours"></div>
+      </div>
+      <form class="user-name">
+        <input type="text" placeholder="what's your name?" />
+      </form>
+      <h2 class="print-name"></h2>
+    </header>
+    <content class="content">
+      <div class="wrap__todolist hide">
+        <form class="start-form calendar-form">
+          <label class="calendar__start-label label">
+            START
+          </label>
+          <input type="date" class="calendar" />
+        </form>
+        <form class="finish-form calendar-form">
+          <label class="calendar__finish-label label">
+            FINISH
+          </label>
+          <input type="date" class="calendar" />
+        </form>
+
+        <form class="todo-form">
+          <input type="text" placeholder="To Do List" />
+        </form>
+
+        <ul class="todo-list"></ul>
+        <h3 class="todo-list-no">
+          Writing your To-Do-List.<br />
+          If you want to set a period<br />Use "START" and "FINISH"
+        </h3>
+      </div>
+
+      <div class="wrap__finished">
+        <ul class="todo-finished"></ul>
+        <h1 class="todo-finished-no">There's No Finished List.</h1>
+      </div>
+    </content>
+    <script src="printUser.js"></script>
+    <script src="clock.js"></script>
+    <script src="todolist.js"></script>
+    <script src="weather.js"></script>
+    <script src="picture.js"></script>
+  </body>
+</html>
