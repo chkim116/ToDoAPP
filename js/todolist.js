@@ -30,6 +30,7 @@ function handleStartCalendar(e) {
   startDate.startDay = target.getDate();
   finishDate.hasFirshDay = true;
 }
+
 function handleFinishCalendar(e) {
   let target = e.target.valueAsDate;
   const { hasFirshDay } = finishDate;
@@ -96,7 +97,7 @@ const finishNoList = document.querySelector(".todo-finished-no");
 let todos = [];
 let finishedDos = [];
 
-// check List
+//  TODOLIST - check List
 
 function checkToDos() {
   if (todos.length !== 0) {
@@ -118,7 +119,7 @@ function checkFinished() {
   }
 }
 
-// Delete List
+//  TODOLIST - Delete List
 
 function handleDelToDos(e) {
   const li = e.target.parentNode.parentNode;
@@ -142,7 +143,7 @@ function handleDelFinished(e) {
   saveFinished();
 }
 
-// Done List (To Do List -> Finished List)
+//  TODOLIST - Done List (To Do List -> Finished List)
 
 function handleDoneList(e) {
   const li = e.target.parentNode.parentNode;
@@ -153,7 +154,7 @@ function handleDoneList(e) {
   handleDelToDos(e);
 }
 
-// Save on Localstorage
+//  TODOLIST - Save on Localstorage
 
 function saveToDo() {
   localStorage.setItem("TODOLIST", JSON.stringify(todos));
@@ -163,7 +164,8 @@ function saveFinished() {
   localStorage.setItem("FINISHED", JSON.stringify(finishedDos));
 }
 
-// Create List - To Do List
+// TODOLIST - Create To Do List
+
 function handleCreateToDo(list, start, finish) {
   const li = document.createElement("li");
   const done = document.createElement("span");
@@ -216,7 +218,7 @@ function handleCreateToDo(list, start, finish) {
   saveToDo();
 }
 
-// Create List - Finished List
+//  TODOLIST - Create Finished List
 
 function handleCreateFinished(list) {
   const finishedDay = new Date();
@@ -245,13 +247,13 @@ function handleCreateFinished(list) {
     finishedDate: finishDate,
   };
 
-  console.log(finishDate);
   finishedDos.push(finishedDosObj);
   checkFinished();
   saveFinished();
 }
 
-// Save Finished Date
+//  TODOLIST - Save Finished Date
+
 function handleLoadFinished(list, saveFinishedDate) {
   const li = document.createElement("li");
   const del = document.createElement("span");
@@ -280,7 +282,7 @@ function handleLoadFinished(list, saveFinishedDate) {
   saveFinished();
 }
 
-// List Submit
+// TODOLIST - List Submit
 
 function handleToDo(e) {
   const list = input.value;
@@ -296,7 +298,7 @@ function handleToDo(e) {
   }
 }
 
-// Load LocalStorage
+// TODOLIST - Load LocalStorage
 
 function loadLocalStorage() {
   const getToDos = localStorage.getItem("TODOLIST");
@@ -314,8 +316,6 @@ function loadLocalStorage() {
     });
   }
 }
-
-function noList() {}
 
 loadLocalStorage();
 toDoForm.addEventListener("submit", handleToDo);
