@@ -196,14 +196,12 @@ function handleCreateToDo(list, start, finish) {
     const startDateText = `${startYear}/${startMonth + 1}/${startDay}`;
     const finishDateText = `${finishYear}/${finishMonth + 1}/${finishDay}`;
 
-    if (!finishYear && !finishMonth && !finishDay) {
+    if (finishCalendar.value === "") {
       todosObj.startDateText = startDateText;
     } else {
       todosObj.startDateText = startDateText;
       todosObj.finishDateText = finishDateText;
     }
-  } else {
-    date.innerText = "";
   }
 
   if (todosObj.startDateText !== undefined) {
@@ -288,6 +286,7 @@ function handleToDo(e) {
   const list = input.value;
   if (!list) {
     alert("입력");
+    return;
   } else {
     e.preventDefault();
     handleCreateToDo(list);
