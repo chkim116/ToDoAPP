@@ -147,7 +147,6 @@ function handleDelFinished(e) {
 
 function handleDoneList(e) {
   const li = e.target.parentNode.parentNode;
-  console.log(e.target.parentNode.parentNode);
   finishNoList.style.display = "none";
   handleCreateFinished(li.innerText);
 
